@@ -37,6 +37,6 @@ public class WeatherService(IWeatherApiClient apiClient)
     public async Task<bool> IsFreezingAsync(string city)
     {
         var data = await apiClient.GetWeatherAsync(city);
-        return data is not null && data.TemperatureCelsius > 0;
+        return data is not null && data.TemperatureCelsius <= 0;
     }
 }
